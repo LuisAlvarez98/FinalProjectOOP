@@ -21,6 +21,24 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Reserva.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fecha.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Disco.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Libro.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Software.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
