@@ -5,19 +5,43 @@ class Fecha {
 		int mm;
 		int aa;
 	public:
-		Fecha();
-		Fecha(int dd, int mm, int aa);
-		friend Fecha operator+(Fecha f1, Fecha f2) {
-			Fecha f3;
-			f3.setDia(f1.getDia() + f2.getDia());
-			return f3;
+		//Constructors
+		Fecha() {
+			dd = 0;
+			mm = 0;
+			aa = 0;
 		}
-		void setFecha(int dd, int mm, int aa);
+		Fecha(int dd, int mm, int aa) {
+			this->dd = dd;
+			this->mm = mm;
+			this->aa = aa;
+		}
+		//Setters
+		void setMes(int mm) {
+			this->mm = mm;
+		}
+		void setYear(int aa) {
+			this->aa = aa;
+		}
 		void setDia(int dd) {
 			this->dd = dd;
 		}
+		
+		//Getters
 		int getDia(){
 			return dd;
+		}
+		int getMes() {
+			return mm;
+		}
+		int getYear() {
+			return aa;
+		}
+		//Methods
+		void setFecha(int dd, int mm, int aa) {
+			this->dd = dd;
+			this->mm = mm;
+			this->aa = aa;
 		}
 
 };
