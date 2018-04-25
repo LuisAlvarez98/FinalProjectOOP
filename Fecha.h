@@ -55,7 +55,7 @@ class Fecha {
 			}
 			return false;
 		}
-		// >
+		// > fix
 		friend bool operator>(Fecha f1, Fecha f2) {
 			if (f1.getYear() > f2.getYear()) 
 			{
@@ -75,7 +75,7 @@ class Fecha {
 			}
 			return false;
 		}
-		// <
+		// < fix
 		friend bool operator<(Fecha f1, Fecha f2) {
 			if (f1.getYear() < f2.getYear())
 			{
@@ -97,7 +97,7 @@ class Fecha {
 			}
 			return false;
 		}
-		//Check
+		//Check fix
 		friend bool operator >=(Fecha f1, Fecha f2) {
 			if (f1.getYear() >= f2.getYear()) {
 				return true;
