@@ -48,14 +48,14 @@ class Fecha {
 			this->aa = aa;
 		}
 		//Sobrecarga de operadores
-		//==
+		//== done
 		friend bool operator==(Fecha f1, Fecha f2) {
 			if (f1.getYear() == f2.getYear() && f1.getMes() == f2.getMes() && f1.getDia() == f2.getDia()) {
 				return true;
 			}
 			return false;
 		}
-		// > 
+		// > done
 		friend bool operator>(Fecha f1, Fecha f2) {
 			if (f1.getYear() > f2.getYear()) 
 			{
@@ -75,7 +75,7 @@ class Fecha {
 			}
 			return false;
 		}
-		// < 
+		// < done
 		friend bool operator<(Fecha f1, Fecha f2) {
 			if (f1.getYear() < f2.getYear())
 			{
@@ -97,61 +97,81 @@ class Fecha {
 			}
 			return false;
 		}
-		//Check fix
+		//>= done
 		friend bool operator >=(Fecha f1, Fecha f2) {
-			if (f1.getYear() >= f2.getYear()) {
+			if (f1 > f2) {
 				return true;
 			}
-			else if (f1.getYear() == f2.getYear()) {
-				if (f1.getMes() >= f2.getMes()) {
-					return true;
-				}
-				else if (f1.getMes() == f2.getMes()) {
-					if (f1.getDia() >= f2.getDia()) {
-						return true;
-					}
-				}
+			if (f1 == f2) {
+				return true;
 			}
 			return false;
 		}
+		// <= done
+		friend bool operator <=(Fecha f1, Fecha f2) {
+			if (f1 < f2) {
+				return true;
+			}
+			if (f1 == f2) {
+				return true;
+			}
+			return false;
+		}
+		// >> not working
+		friend istream& operator>>(istream& is, Fecha &f) {
+			is >> f.aa;
+			is >> f.mm;
+			is >> f.dd;
+
+			return is;
+		}
+		// << not working
+		friend ostream& operator<<(ostream &os, Fecha &f) {
+			os << f.aa << endl;
+			os << f.mm << endl;
+			os << f.dd << endl;
+
+			return os;
+		}
+		//Nombre mes
 		inline string nombreMes(int mes) {
 			string result;
 			switch (mes) {
 				case 1:
-					result = "Enero";
+					result = "Ene";
 					break;
 				case 2:
-					result = "Febrero";
+					result = "Feb";
 					break;
 				case 3:
-					result = "Marzo";
+					result = "Mar";
 					break;
 				case 4:
-					result = "Abril";
+					result = "Abr";
 					break;
 				case 5:
-					result = "Mayo";
+					result = "May";
 					break;
 				case 6:
-					result = "Junio";
+					result = "Jun";
 					break;
 				case 7:
-					result = "Julio";
+					result = "Jul";
 					break;
 				case 8:
-					result = "Agosto";
+					result = "Ago";
 					break;
 				case 9:
-					result = "Septiembre";
+					result = "Sep";
 					break;
 				case 10:
-					result = "Octubre";
+					result = "Oct";
 					break;
 				case 11:
-					result = "Noviembre";
+					result = "Nov";
 					break;
 				case 12:
-					result = "Diciembre";
+					result = "Dic";
 					break;
 				}
 			return result;
