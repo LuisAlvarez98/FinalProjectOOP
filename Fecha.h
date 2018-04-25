@@ -1,4 +1,8 @@
 #pragma once
+#include <string>
+#include <iostream>
+using namespace std;
+
 class Fecha {
 	private:
 		int dd;
@@ -17,31 +21,122 @@ class Fecha {
 			this->aa = aa;
 		}
 		//Setters
-		void setMes(int mm) {
+		inline void setMes(int mm) {
 			this->mm = mm;
 		}
-		void setYear(int aa) {
+		inline void setYear(int aa) {
 			this->aa = aa;
 		}
-		void setDia(int dd) {
+		inline void setDia(int dd) {
 			this->dd = dd;
 		}
 		
 		//Getters
-		int getDia(){
+		inline int getDia(){
 			return dd;
 		}
-		int getMes() {
+		inline int getMes() {
 			return mm;
 		}
-		int getYear() {
+		inline int getYear() {
 			return aa;
 		}
 		//Methods
-		void setFecha(int dd, int mm, int aa) {
+		inline void setFecha(int dd, int mm, int aa) {
 			this->dd = dd;
 			this->mm = mm;
 			this->aa = aa;
 		}
-
+		//Sobrecarga de operadores
+		//==
+		friend bool operator==(Fecha f1, Fecha f2) {
+			if (f1.getYear() == f2.getYear() && f1.getMes() == f2.getMes() && f1.getDia() == f2.getDia()) {
+				return true;
+			}
+			return false;
+		}
+		// >
+		friend bool operator>(Fecha f1, Fecha f2) {
+			if (f1.getYear() > f2.getYear()) 
+			{
+				return true;
+			}else if(f1.getYear() == f2.getYear())
+			{
+				if (f1.getMes() > f2.getMes())
+				{
+					return true;
+				}else if (f1.getMes() == f2.getMes()) 
+				{
+					if (f1.getDia() > f2.getDia()) 
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+		// <
+		friend bool operator<(Fecha f1, Fecha f2) {
+			if (f1.getYear() < f2.getYear())
+			{
+				return true;
+			}
+			else if (f1.getYear() == f2.getYear())
+			{
+				if (f1.getMes() < f2.getMes())
+				{
+					return true;
+				}
+				else if (f1.getMes() == f2.getMes())
+				{
+					if (f1.getDia() < f2.getDia())
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+		inline string nombreMes(int mes) {
+			string result;
+			switch (mes) {
+				case 1:
+					result = "Enero";
+					break;
+				case 2:
+					result = "Febrero";
+					break;
+				case 3:
+					result = "Marzo";
+					break;
+				case 4:
+					result = "Abril";
+					break;
+				case 5:
+					result = "Mayo";
+					break;
+				case 6:
+					result = "Junio";
+					break;
+				case 7:
+					result = "Julio";
+					break;
+				case 8:
+					result = "Agosto";
+					break;
+				case 9:
+					result = "Septiembre";
+					break;
+				case 10:
+					result = "Octubre";
+					break;
+				case 11:
+					result = "Noviembre";
+					break;
+				case 12:
+					result = "Diciembre";
+					break;
+				}
+			return result;
+		}
 };
