@@ -97,6 +97,23 @@ class Fecha {
 			}
 			return false;
 		}
+		//Check
+		friend bool operator >=(Fecha f1, Fecha f2) {
+			if (f1.getYear() >= f2.getYear()) {
+				return true;
+			}
+			else if (f1.getYear() == f2.getYear()) {
+				if (f1.getMes() >= f2.getMes()) {
+					return true;
+				}
+				else if (f1.getMes() == f2.getMes()) {
+					if (f1.getDia() >= f2.getDia()) {
+						return true;
+					}
+				}
+			}
+			return false;
+		}
 		inline string nombreMes(int mes) {
 			string result;
 			switch (mes) {
