@@ -133,6 +133,9 @@ class Fecha {
 
 			return os;
 		}
+		friend bool operator+(Fecha f1, Fecha f2) {
+
+		}
 		//Nombre mes
 		inline string nombreMes(int mes) {
 			string result;

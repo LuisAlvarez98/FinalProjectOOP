@@ -1,3 +1,6 @@
+/*
+Done
+*/
 #pragma once
 #include <string>
 #include <iostream>
@@ -6,6 +9,7 @@ class Material {
 	protected:
 		int idMaterial;
 		string titulo;
+		char tipo;
 	public:
 		//Constructors
 		Material() {
@@ -23,12 +27,18 @@ class Material {
 		void setTitulo(string titulo) {
 			this->titulo;
 		}
+		void setTipo(char tipo) {
+			this->tipo = tipo;
+		}
 		//Getters
 		int getIdMaterial() {
 			return idMaterial;
 		}
 		string getTitulo() {
 			return titulo;
+		}
+		char getTipo() {
+			return tipo;
 		}
 		//Abstract Methods
 		virtual void muestraDatos() = 0;
