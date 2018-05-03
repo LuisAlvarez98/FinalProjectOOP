@@ -4,6 +4,8 @@ Done
 #pragma once
 #include <string>
 #include <iostream>
+#ifndef Material_h
+#define Material_h
 using namespace std;
 class Material {
 	protected:
@@ -44,3 +46,5 @@ class Material {
 		virtual void muestraDatos() = 0;
 		virtual int cantidadDeDiasDePrestamo() = 0;
 };
+
+#endif

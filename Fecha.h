@@ -131,34 +131,46 @@ class Fecha {
 			os << f.aa << endl;
 			return os;
 		}
-		inline int getNumMes(int mes) {
-			switch (mes) {
-				case 2:
-					if (esBisiesto(aa)) {
-						return 29;
-					}
-					else {
-						return 28;
-					}
-					break;
-				case 4:
-				case 6:
-				case 9:
-				case 11:
-					return 30;
-					break;
-				default:
-					return 31;
-					break;
-			}
-		}
 		inline bool esBisiesto(int year) {
 			bool result;
 			(year % 4 == 0) && !(year % 100 == 0) || (year % 400 == 0) ? result = true : result = false;
 			return result;
 			
 		}
+		inline int getNumMes(int mes) {
+			switch (mes) {
+			case 2:
+				if (esBisiesto(aa)) {
+					return 29;
+				}
+				else {
+					return 28;
+				}
+				break;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				return 30;
+				break;
+			default:
+				return 31;
+				break;
+			}
+		}
+		
 		friend Fecha operator+(Fecha f1, int cantDias) {
+				Fecha fNueva = f1 + cantDias;
+				if (fNueva.dd > fNueva.getNumMes(fNueva.mm)) {
+					fNueva.mm++;
+					fNueva.dd -= fNueva.getNumMes(fNueva.mm);
+				}
+				if(fNueva.mm > 12) {
+					fNueva.mm++;
+					fNueva.mm -= 12;
+
+				}
+				return fNueva;
 		}
 	
 		//Nombre mes
