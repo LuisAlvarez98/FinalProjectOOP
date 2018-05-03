@@ -119,23 +119,28 @@ class Fecha {
 		}
 		// >> not working
 		friend istream& operator>>(istream& is, Fecha &f) {
-			is >> f.aa;
-			is >> f.mm;
 			is >> f.dd;
-
+			is >> f.mm;
+			is >> f.aa;
 			return is;
 		}
 		// << not working
-		friend ostream& operator<<(ostream &os, Fecha &f) {
-			os << f.aa << endl;
-			os << f.mm << endl;
+		friend ostream& operator<<(ostream &os, Fecha f) {
 			os << f.dd << endl;
-
+			os << f.mm << endl;
+			os << f.aa << endl;
 			return os;
 		}
-		friend bool operator+(Fecha f1, Fecha f2) {
-
+		inline bool esBisiesto(int year) {
+			bool result;
+			(year % 4 == 0) && !(year % 100 == 0) || (year % 400 == 0) ? result = true : result = false;
+			return result;
+			
 		}
+		friend Fecha operator+(Fecha f1, int cantDias) {
+			
+		}
+	
 		//Nombre mes
 		inline string nombreMes(int mes) {
 			string result;
