@@ -131,6 +131,27 @@ class Fecha {
 			os << f.aa << endl;
 			return os;
 		}
+		inline int getNumMes(int mes) {
+			switch (mes) {
+				case 2:
+					if (esBisiesto(aa)) {
+						return 29;
+					}
+					else {
+						return 28;
+					}
+					break;
+				case 4:
+				case 6:
+				case 9:
+				case 11:
+					return 30;
+					break;
+				default:
+					return 31;
+					break;
+			}
+		}
 		inline bool esBisiesto(int year) {
 			bool result;
 			(year % 4 == 0) && !(year % 100 == 0) || (year % 400 == 0) ? result = true : result = false;
@@ -138,7 +159,6 @@ class Fecha {
 			
 		}
 		friend Fecha operator+(Fecha f1, int cantDias) {
-			
 		}
 	
 		//Nombre mes
